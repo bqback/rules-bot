@@ -236,6 +236,7 @@ class Search:
 
     @staticmethod
     def _sort_key(entry: BaseEntry, search_query: str) -> float:
+        search_query = search_query.strip("+")
         return entry.compare_to_query(search_query)
 
     @alru_cache(maxsize=64)  # type: ignore[misc]
